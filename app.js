@@ -1,4 +1,4 @@
-// === CARGAR PERFUMES DESDE JSON ===
+// === ELEMENTOS DEL DOM ===
 const catalogo = document.getElementById("catalogo");
 const searchInput = document.getElementById("searchInput");
 const cartButton = document.getElementById("cartButton");
@@ -10,7 +10,7 @@ const totalElement = document.getElementById("total");
 let perfumes = [];
 let carrito = [];
 
-// Cargar perfumes desde archivo JSON
+// === CARGAR PERFUMES DESDE JSON ===
 fetch("perfumes.json")
   .then(res => res.json())
   .then(data => {
@@ -18,7 +18,7 @@ fetch("perfumes.json")
     mostrarPerfumes(perfumes);
   });
 
-// Mostrar perfumes en el catálogo
+// === MOSTRAR PERFUMES EN CATALOGO ===
 function mostrarPerfumes(lista) {
   catalogo.innerHTML = "";
   lista.forEach(perfume => {
@@ -34,7 +34,7 @@ function mostrarPerfumes(lista) {
   });
 }
 
-// Buscar perfumes
+// === BUSCAR PERFUMES ===
 searchInput.addEventListener("input", e => {
   const valor = e.target.value.toLowerCase();
   const filtrados = perfumes.filter(p =>
@@ -44,25 +44,25 @@ searchInput.addEventListener("input", e => {
   mostrarPerfumes(filtrados);
 });
 
-// Abrir y cerrar carrito
+// === TOGGLE CARRITO ===
 cartButton.addEventListener("click", () => {
   cart.classList.toggle("show");
 });
 
-// Agregar al carrito
+// === AGREGAR AL CARRITO ===
 function agregarAlCarrito(id) {
   const perfume = perfumes.find(p => p.id === id);
   carrito.push(perfume);
   actualizarCarrito();
 }
 
-// Eliminar del carrito
+// === ELIMINAR DEL CARRITO ===
 function eliminarDelCarrito(index) {
   carrito.splice(index, 1);
   actualizarCarrito();
 }
 
-// Actualizar carrito
+// === ACTUALIZAR CARRITO ===
 function actualizarCarrito() {
   cartItems.innerHTML = "";
   let total = 0;
