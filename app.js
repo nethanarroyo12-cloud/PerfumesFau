@@ -1,5 +1,34 @@
+// === ELEMENTOS DEL DOM ===
+const catalogo = document.getElementById("catalogo");
+const searchInput = document.getElementById("searchInput");
+const cartButton = document.getElementById("cartButton");
+const cart = document.getElementById("cart");
+const cartItems = document.getElementById("cartItems");
+const cartCount = document.getElementById("cartCount");
+const totalElement = document.getElementById("total");
+
+let perfumes = [];
+let carrito = [];
+
+// === CARGAR PERFUMES DESDE JSON ===
+fetch("perfumes.json")
+  .then(res => res.json())
+  .then(data => {
+    perfumes = data;
+    mostrarPerfumes(perfumes);
+  })
+  .catch(err => {
+    catalogo.innerHTML = "<p>Error cargando perfumes.</p>";
+    console.error(err);
+  });
+
+// === MOSTRAR PERFUMES EN CATALOGO ===
 function mostrarPerfumes(lista) {
   catalogo.innerHTML = "";
+  if (lista.length === 0) {
+    catalogo.innerHTML = "<p>No se encontraron perfumes.</p>";
+    return;
+  }
   lista.forEach(p => {
     const card = document.createElement("div");
     card.classList.add("card");
@@ -14,7 +43,35 @@ function mostrarPerfumes(lista) {
   });
 }
 
-// En el carrito también podemos mostrar la imagen opcionalmente:
+// === BUSCAR PERFUMES ===
+searchInput.addEventListener("input", e => {
+  const valor = e.target.value.toLowerCase();
+  const filtrados = perfumes.filter(p =>
+    p.nombre.toLowerCase().includes(valor) ||
+    p.descripcion.toLowerCase().includes(valor)
+  );
+  mostrarPerfumes(filtrados);
+});
+
+// === TOGGLE CARRITO ===
+cartButton.addEventListener("click", () => {
+  cart.classList.toggle("show");
+});
+
+// === AGREGAR AL CARRITO ===
+function agregarAlCarrito(id) {
+  const perfume = perfumes.find(p => p.id === id);
+  carrito.push(perfume);
+  actualizarCarrito();
+}
+
+// === ELIMINAR DEL CARRITO ===
+function eliminarDelCarrito(index) {
+  carrito.splice(index, 1);
+  actualizarCarrito();
+}
+
+// === ACTUALIZAR CARRITO ===
 function actualizarCarrito() {
   cartItems.innerHTML = "";
   let total = 0;
@@ -49,6 +106,10 @@ function actualizarCarrito() {
     btn.classList.add("deleteBtn");
     btn.textContent = "X";
     btn.onclick = () => eliminarDelCarrito(index);
+
+    li.style.display = "flex";
+    li.style.justifyContent = "space-between";
+    li.style.alignItems = "center";
 
     li.appendChild(flexContainer);
     li.appendChild(btn);
