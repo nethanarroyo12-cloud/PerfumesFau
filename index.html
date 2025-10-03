@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Perfumes</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>✨ Perfumería Encantada ✨</h1>
+    <input type="text" id="searchInput" placeholder="Buscar perfume...">
+    <button id="cartButton">🛒 Carrito (<span id="cartCount">0</span>)</button>
+  </header>
+
+  <main>
+    <section id="catalogo" class="catalogo"></section>
+  </main>
+
+  <aside id="cart" class="cart">
+    <h2>Carrito de Compras</h2>
+    <ul id="cartItems"></ul>
+    <p><strong>Total:</strong> ₡<span id="total">0</span></p>
+    <button id="closeCart">Cerrar</button>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
