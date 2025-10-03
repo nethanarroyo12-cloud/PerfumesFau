@@ -2,13 +2,13 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #f5f3ef;
-  color: #1a1a1a;
+  background: #faf7f3;
+  color: #2d2d2d;
 }
 
 /* === HEADER === */
 header {
-  background: linear-gradient(90deg, #3b2f2f, #001f3f);
+  background: linear-gradient(90deg, #6b4226, #001f3f);
   color: white;
   padding: 1rem 2rem;
   display: flex;
@@ -29,29 +29,36 @@ header h1 {
 }
 
 #searchInput {
-  padding: 0.5rem;
+  padding: 0.6rem;
   border-radius: 6px;
-  border: none;
+  border: 2px solid #6b4226;
   outline: none;
   font-size: 1rem;
+}
+
+/* === TITULOS === */
+.subtitulo {
+  text-align: center;
+  color: #6b4226;
+  margin-top: 1.5rem;
+  font-size: 1.4rem;
 }
 
 /* === CATALOGO === */
 .catalogo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
   padding: 2rem;
 }
 
 .card {
   background: #fff;
-  border: 2px solid #3b2f2f;
   border-radius: 12px;
   padding: 1.5rem;
-  text-align: center;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+  border-top: 6px solid #6b4226;
   transition: transform 0.2s ease-in-out;
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
 }
 
 .card:hover {
@@ -70,14 +77,14 @@ header h1 {
 
 .precio {
   font-weight: bold;
-  color: #3b2f2f;
+  color: #6b4226;
   margin: 0.8rem 0;
 }
 
 button {
   background: #001f3f;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -85,7 +92,7 @@ button {
 }
 
 button:hover {
-  background: #3b2f2f;
+  background: #6b4226;
 }
 
 /* === CARRITO EN HEADER === */
@@ -94,9 +101,9 @@ button:hover {
 }
 
 #cartButton {
-  background: #3b2f2f;
+  background: #6b4226;
   border-radius: 8px;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1rem;
 }
 
 #cartButton:hover {
@@ -105,11 +112,11 @@ button:hover {
 
 .cart {
   position: absolute;
-  top: 50px;
+  top: 55px;
   right: 0;
-  width: 280px;
+  width: 300px;
   background: #fff;
-  border: 2px solid #3b2f2f;
+  border-top: 6px solid #6b4226;
   border-radius: 12px;
   padding: 1rem;
   display: none;
@@ -124,7 +131,7 @@ button:hover {
 .cart h2 {
   color: #001f3f;
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
   text-align: center;
 }
 
@@ -138,7 +145,7 @@ button:hover {
 
 #cartItems li {
   padding: 0.4rem 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -162,5 +169,5 @@ button:hover {
   text-align: right;
   margin-top: 0.8rem;
   font-weight: bold;
-  color: #3b2f2f;
+  color: #6b4226;
 }
