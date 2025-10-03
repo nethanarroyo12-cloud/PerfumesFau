@@ -2,31 +2,31 @@
   {
     "id": 1,
     "nombre": "Amanecer Marino",
-    "precio": ₡ 25000,
+    "precio": 25000,
     "descripcion": "Fresco aroma marino con notas cítricas que evocan libertad."
   },
   {
     "id": 2,
     "nombre": "Bosque Encantado",
-    "precio": ₡ 32000,
+    "precio": 32000,
     "descripcion": "Fragancia amaderada con toques de cedro y sándalo."
   },
   {
     "id": 3,
     "nombre": "Noche de Café",
-    "precio": ₡ 28000,
+    "precio": 28000,
     "descripcion": "Perfume cálido con esencia de granos de café tostados."
   },
   {
     "id": 4,
     "nombre": "Flor Azul",
-    "precio": ₡ 27000,
+    "precio": 27000,
     "descripcion": "Dulce combinación floral con matices de jazmín y lavanda."
   },
   {
     "id": 5,
     "nombre": "Esencia Dorada",
-    "precio": ₡ 35000,
+    "precio": 35000,
     "descripcion": "Elegante mezcla de vainilla y especias que perdura en la piel."
   }
 ]
