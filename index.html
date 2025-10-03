@@ -1,78 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda de Perfumes</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
 <body>
-
-  <!-- === HEADER === -->
   <header>
-    <h1>Mi Catálogo</h1>
-    <div class="actions">
-      <input type="text" id="searchInput" placeholder="Buscar producto...">
-      <div class="cart-container">
-        <button id="cartButton">Carrito</button>
-        <div class="cart" id="cart">
-          <h2>Tu carrito</h2>
-          <ul id="cartItems"></ul>
-          <p>Total: $0</p>
-        </div>
-      </div>
+    <h1>Catálogo de Perfumes</h1>
+    <div id="carrito-container">
+      <h2>🛒 Carrito</h2>
+      <ul id="carrito-lista"></ul>
+      <p id="total">Total: ₡0</p>
     </div>
   </header>
 
-  <!-- === FILTROS === -->
-  <section class="filtros">
-    <select id="categoriaFilter">
-      <option value="">Todas las categorías</option>
-      <option value="ropa">Ropa</option>
-      <option value="electronica">Electrónica</option>
-      <option value="hogar">Hogar</option>
-    </select>
-
-    <label>
-      <input type="checkbox" id="ofertaFilter">
-      Solo en oferta
-    </label>
-  </section>
-
-  <!-- === CATALOGO === -->
-  <section class="catalogo">
-    <div class="card">
-      <h3>Producto 1</h3>
-      <p>Descripción corta del producto.</p>
-      <p class="precio">$15.00</p>
-      <button class="detalleBtn">Ver Detalles</button>
-      <button class="addCartBtn">Añadir al carrito</button>
-    </div>
-
-    <div class="card">
-      <h3>Producto 2</h3>
-      <p>Descripción corta del producto.</p>
-      <p class="precio">$30.00</p>
-      <button class="detalleBtn">Ver Detalles</button>
-      <button class="addCartBtn">Añadir al carrito</button>
-    </div>
-  </section>
-
-  <!-- === PAGINACIÓN === -->
-  <section class="paginacion">
-    <button>&laquo;</button>
-    <button class="active">1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>&raquo;</button>
-  </section>
-
-  <!-- === MODAL DETALLE PRODUCTO === -->
-  <div class="modal" id="modal">
-    <div class="modal-content">
-      <button class="closeModal" id="closeModal">&times;</button>
-      <h2 id="modalTitle">Título del producto</h2>
-      <p id="modalDesc">Aquí irá la descripción más completa del producto.</p>
-      <p class="precio" id="modalPrecio">$0.00</p>
-      <button>Añadir al carrito</button>
-    </div>
-  </div>
-
-  <!-- === NOTIFICACIONES === -->
-  <div class="toast" id="toast">
-    Producto añadido al carrito ✅
-  </div>
-
+  <main>
+    <input type="text" id="buscador" placeholder="Buscar perfume...">
+    <div id="catalogo"></div>
+  </main>
 </body>
+</html>
