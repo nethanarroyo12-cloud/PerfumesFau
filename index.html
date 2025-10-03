@@ -5,21 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tienda de Perfumes</title>
   <link rel="stylesheet" href="style.css">
-  <script src="app.js" defer></script>
 </head>
 <body>
   <header>
-    <h1>Catálogo de Perfumes</h1>
-    <div id="carrito-container">
-      <h2>🛒 Carrito</h2>
-      <ul id="carrito-lista"></ul>
-      <p id="total">Total: ₡0</p>
+    <h1>✨ Perfumería Encantada ✨</h1>
+    <div class="actions">
+      <input type="text" id="searchInput" placeholder="Buscar perfume...">
+      <div class="cart-container">
+        <button id="cartButton">🛒 (<span id="cartCount">0</span>)</button>
+        <div id="cart" class="cart">
+          <h2>Carrito</h2>
+          <ul id="cartItems"></ul>
+          <p><strong>Total:</strong> ₡<span id="total">0</span></p>
+        </div>
+      </div>
     </div>
   </header>
 
   <main>
-    <input type="text" id="buscador" placeholder="Buscar perfume...">
-    <div id="catalogo"></div>
+    <h2 class="subtitulo">Catálogo de perfumes</h2>
+    <section id="catalogo" class="catalogo"></section>
   </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
