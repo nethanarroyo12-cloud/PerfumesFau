@@ -1,17 +1,20 @@
+/* === ESTILO GENERAL === */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  background: #fdfcf9;
+  background: #f5f3ef;
   color: #1a1a1a;
 }
 
+/* === HEADER === */
 header {
   background: linear-gradient(90deg, #3b2f2f, #001f3f);
   color: white;
-  padding: 1rem;
+  padding: 1rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 header h1 {
@@ -19,39 +22,56 @@ header h1 {
   font-size: 1.6rem;
 }
 
-#searchInput {
-  padding: 0.5rem;
-  border-radius: 5px;
-  border: none;
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
+#searchInput {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* === CATALOGO === */
 .catalogo {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
 }
 
 .card {
   background: #fff;
   border: 2px solid #3b2f2f;
-  border-radius: 10px;
-  padding: 1rem;
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
   transition: transform 0.2s ease-in-out;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
 }
 
 .card:hover {
-  transform: scale(1.03);
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0px 6px 14px rgba(0,0,0,0.25);
 }
 
 .card h3 {
   color: #001f3f;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  margin: 0.3rem 0;
 }
 
 .precio {
   font-weight: bold;
   color: #3b2f2f;
+  margin: 0.8rem 0;
 }
 
 button {
@@ -61,39 +81,86 @@ button {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.2s ease-in-out;
 }
 
 button:hover {
   background: #3b2f2f;
 }
 
+/* === CARRITO EN HEADER === */
+.cart-container {
+  position: relative;
+}
+
+#cartButton {
+  background: #3b2f2f;
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+}
+
+#cartButton:hover {
+  background: #001f3f;
+}
+
 .cart {
-  position: fixed;
-  top: 0;
-  right: -100%;
-  width: 300px;
-  height: 100%;
-  background: #fefefe;
-  border-left: 4px solid #3b2f2f;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 280px;
+  background: #fff;
+  border: 2px solid #3b2f2f;
+  border-radius: 12px;
   padding: 1rem;
-  transition: right 0.3s ease-in-out;
-  box-shadow: -4px 0px 8px rgba(0,0,0,0.3);
+  display: none;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.25);
+  z-index: 20;
 }
 
 .cart.show {
-  right: 0;
+  display: block;
 }
 
 .cart h2 {
   color: #001f3f;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
 }
 
 #cartItems {
   list-style: none;
   padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
 }
 
 #cartItems li {
-  padding: 0.3rem 0;
+  padding: 0.4rem 0;
   border-bottom: 1px solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.deleteBtn {
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+}
+
+.deleteBtn:hover {
+  background: darkred;
+}
+
+.cart p {
+  text-align: right;
+  margin-top: 0.8rem;
+  font-weight: bold;
+  color: #3b2f2f;
 }
