@@ -1,77 +1,70 @@
 let perfumes = [];
 let carrito = [];
 
-// Cargar perfumes del JSON
-fetch("perfumes.json")
-  .then(res => res.json())
-  .then(data => {
-    perfumes = data;
-    mostrarCatalogo(perfumes);
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  fetch("perfumes.json")
+    .then(res => res.json())
+    .then(data => {
+      perfumes = data;
+      mostrarCatalogo(perfumes);
+    });
 
-// Mostrar perfumes en el catálogo
+  document.getElementById("buscador").addEventListener("input", buscarPerfumes);
+});
+
 function mostrarCatalogo(lista) {
   const catalogo = document.getElementById("catalogo");
   catalogo.innerHTML = "";
+
   lista.forEach(p => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.innerHTML = `
+    const div = document.createElement("div");
+    div.classList.add("perfume");
+    div.innerHTML = `
       <h3>${p.nombre}</h3>
       <p>${p.descripcion}</p>
-      <p class="precio">₡${p.precio.toLocaleString()}</p>
+      <p><strong>₡${p.precio.toLocaleString()}</strong></p>
       <button onclick="agregarAlCarrito(${p.id})">Añadir al carrito</button>
     `;
-    catalogo.appendChild(card);
+    catalogo.appendChild(div);
   });
 }
 
-// Buscar perfumes
-document.getElementById("searchInput").addEventListener("input", e => {
-  const texto = e.target.value.toLowerCase();
+function buscarPerfumes() {
+  const texto = document.getElementById("buscador").value.toLowerCase();
   const filtrados = perfumes.filter(p => 
     p.nombre.toLowerCase().includes(texto) || 
     p.descripcion.toLowerCase().includes(texto)
   );
   mostrarCatalogo(filtrados);
-});
+}
 
-// Añadir al carrito
 function agregarAlCarrito(id) {
-  const perfume = perfumes.find(p => p.id === id);
-  carrito.push(perfume);
+  const producto = perfumes.find(p => p.id === id);
+  carrito.push(producto);
   actualizarCarrito();
 }
 
-// Eliminar del carrito
 function eliminarDelCarrito(index) {
   carrito.splice(index, 1);
   actualizarCarrito();
 }
 
-// Actualizar carrito
 function actualizarCarrito() {
-  const cartItems = document.getElementById("cartItems");
-  const cartCount = document.getElementById("cartCount");
-  const total = document.getElementById("total");
+  const lista = document.getElementById("carrito-lista");
+  lista.innerHTML = "";
 
-  cartItems.innerHTML = "";
-  let suma = 0;
+  let total = 0;
+
   carrito.forEach((item, index) => {
+    total += item.precio;
+
     const li = document.createElement("li");
     li.innerHTML = `
-      <span>${item.nombre} - ₡${item.precio.toLocaleString()}</span>
-      <button class="deleteBtn" onclick="eliminarDelCarrito(${index})">❌</button>
+      ${item.nombre} - ₡${item.precio.toLocaleString()} 
+      <button onclick="eliminarDelCarrito(${index})">❌</button>
     `;
-    cartItems.appendChild(li);
-    suma += item.precio;
+    lista.appendChild(li);
   });
 
-  cartCount.textContent = carrito.length;
-  total.textContent = suma.toLocaleString();
+  document.getElementById("total").textContent = `Total: ₡${total.toLocaleString()}`;
 }
-
-// Mostrar / ocultar carrito
-document.getElementById("cartButton").addEventListener("click", () => {
-  document.getElementById("cart").classList.toggle("show");
-});
