@@ -43,6 +43,12 @@ function agregarAlCarrito(id) {
   actualizarCarrito();
 }
 
+// Eliminar del carrito
+function eliminarDelCarrito(index) {
+  carrito.splice(index, 1);
+  actualizarCarrito();
+}
+
 // Actualizar carrito
 function actualizarCarrito() {
   const cartItems = document.getElementById("cartItems");
@@ -51,9 +57,12 @@ function actualizarCarrito() {
 
   cartItems.innerHTML = "";
   let suma = 0;
-  carrito.forEach(item => {
+  carrito.forEach((item, index) => {
     const li = document.createElement("li");
-    li.textContent = `${item.nombre} - ₡${item.precio.toLocaleString()}`;
+    li.innerHTML = `
+      <span>${item.nombre} - ₡${item.precio.toLocaleString()}</span>
+      <button class="deleteBtn" onclick="eliminarDelCarrito(${index})">❌</button>
+    `;
     cartItems.appendChild(li);
     suma += item.precio;
   });
@@ -62,10 +71,7 @@ function actualizarCarrito() {
   total.textContent = suma.toLocaleString();
 }
 
-// Mostrar y ocultar carrito
+// Mostrar / ocultar carrito
 document.getElementById("cartButton").addEventListener("click", () => {
-  document.getElementById("cart").classList.add("show");
-});
-document.getElementById("closeCart").addEventListener("click", () => {
-  document.getElementById("cart").classList.remove("show");
+  document.getElementById("cart").classList.toggle("show");
 });
