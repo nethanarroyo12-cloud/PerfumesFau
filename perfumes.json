@@ -2,31 +2,37 @@
   {
     "id": 1,
     "nombre": "Amanecer Marino",
+    "descripcion": "Fragancia floral con un toque cítrico fresco.",
     "precio": 25000,
-    "descripcion": "Fresco aroma marino con notas cítricas que evocan libertad."
+    "imagen": "imagenes/eterno_encanto.jpg"
   },
   {
     "id": 2,
     "nombre": "Bosque Encantado",
+    "descripcion": "Perfume amaderado con notas orientales intensas.",
     "precio": 32000,
-    "descripcion": "Fragancia amaderada con toques de cedro y sándalo."
+    "imagen": "imagenes/noche_mistica.jpg"
   },
   {
     "id": 3,
-    "nombre": "Noche de Café",
+    "nombre": "Noche de Cafe",
+    "descripcion": "Aroma fresco inspirado en el grano de cafe.",
     "precio": 28000,
-    "descripcion": "Perfume cálido con esencia de granos de café tostados."
+    "imagen": "imagenes/amanecer_azul.jpg"
   },
   {
     "id": 4,
     "nombre": "Flor Azul",
-    "precio": 27000,
-    "descripcion": "Dulce combinación floral con matices de jazmín y lavanda."
+    "descripcion": "Perfume frutal con un toque de vainilla.",
+    "precio": 30000,
+    "imagen": "imagen.png"
   },
   {
     "id": 5,
     "nombre": "Esencia Dorada",
-    "precio": 35000,
-    "descripcion": "Elegante mezcla de vainilla y especias que perdura en la piel."
+    "descripcion": "Fragancia sofisticada con notas de ámbar y cuero.",
+    "precio": 45000,
+    "imagen": "imagenes/elegancia_suprema.jpg"
   }
 ]
+
